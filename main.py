@@ -4,12 +4,17 @@ from aiogram import executor
 import openai
 from function import check_complexity, process_simple_query
 import datetime
+import os
+from environs import Env
+
+env = Env() # читаю переменные окружения
+env.read_env()
 
 # Ваш токен Telegram бота
-API_TOKEN = '6554327057:AAH_QjUZn3MPVrQIojzd9ROv1LM3X1VDEGA'
+API_TOKEN = env('API_TOKEN')
 
 # Ваш API-ключ от OpenAI
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = env('OPENAI_API_KEY')
 
 # Инициализация бота и диспетчера
 bot = Bot(token=API_TOKEN)
