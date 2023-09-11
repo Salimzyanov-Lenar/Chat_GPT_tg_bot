@@ -12,7 +12,7 @@ env.read_env()
 
 # Ваш токен Telegram бота
 API_TOKEN = env('API_TOKEN')
-
+#
 # Ваш API-ключ от OpenAI
 OPENAI_API_KEY = env('OPENAI_API_KEY')
 
