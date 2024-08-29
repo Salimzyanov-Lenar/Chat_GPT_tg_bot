@@ -7,22 +7,20 @@ import datetime
 import os
 from environs import Env
 
-env = Env() # читаю переменные окружения
+env = Env()
 env.read_env()
 
 # Ваш токен Telegram бота
-API_TOKEN="6554327057:AAH_QjUZn3MPVrQIojzd9ROv1LM3X1VDEGA"
-OPENAI_API_KEY ="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"
+API_TOKEN=""
+OPENAI_API_KEY =""
 
 
 # Инициализация бота и диспетчера
 bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 
-# Настройка журналирования
 logging.basicConfig(level=logging.INFO)
 
-# Настройка API-ключа OpenAI
 openai.api_key = OPENAI_API_KEY
 
 # Функция для обработки сложных запросов через ChatGPT
@@ -71,7 +69,6 @@ async def handle_text_message(message: types.Message):
 
     await message.answer(response_text)
 
-# Добавьте функции check_complexity и process_simple_query для обработки запросов
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
